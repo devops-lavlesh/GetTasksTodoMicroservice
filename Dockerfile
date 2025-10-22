@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Install required dependencies
-RUN apt-get update && apt-get install -y curl gnupg2 unixodbc unixodbc-dev
+RUN apt-get update && apt-get install -y \curl \gnupg \unixodbc \unixodbc-dev \&& rm -rf /var/lib/apt/lists/*
 
 # Add Microsoft’s official GPG key and repository (for Debian 12 / Bookworm)
 RUN curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /usr/share/keyrings/microsoft.gpg && \
@@ -16,11 +16,13 @@ RUN curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor
     > /etc/apt/sources.list.d/mssql-release.list
 
 # Install Microsoft ODBC driver for SQL Server
-RUN apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql18
+RUN apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql18 && \rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port 8000 and start the FastAPI app
+# Expose port 8000
 EXPOSE 8000
+
+# start the FastAPI app
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
