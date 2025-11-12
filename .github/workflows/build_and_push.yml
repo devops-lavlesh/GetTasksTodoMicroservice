@@ -14,8 +14,8 @@ jobs:
     env:
       IMAGE_NAME: todo-get-tasks-api
       IMAGE_TAG: v2
-      ACR_NAME: lavtodoappacr2025
-      ACR_LOGIN_SERVER: lavtodoappacr2025.azurecr.io
+      ACR_NAME: lucktodoappacr2025
+      ACR_LOGIN_SERVER: lucktodoappacr2025.azurecr.io
 
     steps:
       - name: Checkout code
@@ -27,6 +27,7 @@ jobs:
           client-id: ae2efbf9-a607-4fa8-987a-9811135891d8
           tenant-id: 387597f4-2c73-443d-93f5-fe6be49ec6c7
           subscription-id: c4392c89-177c-49fd-abc6-1b1d293e65b7
+          
 
       - name: Log in to ACR
         run: |
