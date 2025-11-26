@@ -13,7 +13,7 @@ jobs:
 
     env:
       IMAGE_NAME: todo-get-tasks-api
-      IMAGE_TAG: v2
+      IMAGE_TAG: v3
       ACR_NAME: lucktodoappacr2025
       ACR_LOGIN_SERVER: lucktodoappacr2025.azurecr.io
 

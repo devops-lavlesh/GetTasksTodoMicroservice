@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: todo-get-tasks-api-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  # - host: /api/get/?(.*)
+  - http:
+      paths:
+      - path: /api/get
+        pathType: Prefix
+        backend:
+          service:
+            name: todo-get-tasks-api
+            port:
+              number: 8000
