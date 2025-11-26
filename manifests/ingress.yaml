@@ -5,13 +5,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  # - host: /api/get/?(.*)
-  - http:
-      paths:
-      - path: /api/get
-        pathType: Prefix
-        backend:
-          service:
-            name: todo-get-tasks-api
-            port:
-              number: 8000
+    - host: get-task-api.shineluck.shop
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: todo-get-tasks-api
+                port:
+                  number: 80
