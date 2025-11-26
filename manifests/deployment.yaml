@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: todo-get-tasks-api
-        image: lucktodoappacr2025.azurecr.io/todo-get-tasks-api:v3
+        image: lucktodoappacr2025.azurecr.io/todo-get-tasks-api:v4
         ports:
         - containerPort: 8000
         env:
