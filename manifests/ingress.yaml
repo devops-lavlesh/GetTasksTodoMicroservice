@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: todo-get-tasks-api-ingress
 spec:
-  ingressClassName: nginx
+  ingressClassName: azure-application-gateway
   rules:
     - host: get-task-api.shineluck.shop
       http:
